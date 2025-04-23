@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Demo Jquery</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <h1>Ejemplo de Uso de Jquery</h1>
+    <button type="submit" id="obtenerInformacion">Obtener información</button>
+    <div id="accordion" style="margin-top: 20px">
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+
+        var url = "https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json";
+        $("#obtenerInformacion").click(function () {
+            $.ajax({
+                dataType: 'json',
+                url: url
+            }).then(function (data) {
+                for (var i = 0; i < data.length; i++) {
+
+                    $('#accordion').append(`
+                            <h3>${data[i]["CLDR display name"]}</h3>
+                            <div>
+                                <p><b>Capital:</b> ${data[i]["Capital"]}</p>
+                                <p><b>Fips:</b> ${data[i]["FIPS"]}</p>
+                                <p><b>Code By Fifa:</b> ${data[i]["FIFA"]}</p>
+                                <p><b>Continent:</b> ${data[i]["Continent"]}</p>
+                                <p><b>Languages:</b> ${data[i]["Languages"]}</p>
+                                <p><b>Geoname ID:</b> ${data[i]["Geoname ID"]}</p>
+                                <p><b>Vehicles signs:</b> ${data[i]["DS"]}</p>
+                            </div>
+                        `)
+                }
+
+                $('#accordion').accordion({
+                    collapsible: true,
+                });
+
+            }
+            )
+        });
+    });
+</script>
+
+</html>
