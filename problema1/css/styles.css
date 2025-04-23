@@ -1,0 +1,30 @@
+.uno {
+    background-color: #9999fe;
+    border-color: #000000;
+    border-style: solid;
+}
+
+.mensaje {
+    background-color: #f3f3f3;
+    color: #000000;
+    border-color: #fbf326;
+    border-style: solid;
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 20px;
+    height: 60px;
+    margin: 10px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.dos {
+    background-color: #c98843;
+    color: #ffffff;
+}
+
+.comentario {
+    font-size: 15px;
+    border-bottom: 2px solid #69811f;
+    padding-left: 10px;
+}
