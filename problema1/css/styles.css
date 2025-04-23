@@ -1,9 +1,12 @@
+/* Llamamos a la clase "uno" para asiganrle un fondo lila y un borde negro sólido. */
 .uno {
     background-color: #9999fe;
     border-color: #000000;
     border-style: solid;
 }
 
+/* Llamamos a la clase "mensaje" para darle un fondo gris claro, darle un color negro al texto, un borde amarillo sólido.
+Hacemos mas grande el texto y en negrita, le damos espacio a la izquierda, una altura fija, margen, y centrado vertical usando flexbox. */
 .mensaje {
     background-color: #f3f3f3;
     color: #000000;
@@ -18,11 +21,13 @@
     align-items: center;
 }
 
+/* Llamamos a la clase "dos" para darle un fondo naranja y texto blanco.*/
 .dos {
     background-color: #c98843;
     color: #ffffff;
 }
 
+/* Llamamos a la clase "dos" para hacer que el texto se vea más pequeño, poner un borde inferior verde y espacio a la izquierda.*/
 .comentario {
     font-size: 15px;
     border-bottom: 2px solid #69811f;
