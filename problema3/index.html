@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
     <title>Demo Jquery</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -11,18 +12,8 @@
 <h1>Ejemplo de Uso de Jquery</h1>
 <button type="submit" id="obtenerInformacion">Obtener información</button>
 <button type="submit" id="limpiarInformacion">Limpiar información</button>
-<table id="accordion">
-    <tr>
-        <th>Pais:</th>
-        <th>Capital:</th>
-        <th>Fips:</th>
-        <th>Code By Fifa:</th>
-        <th>Continent:</th>
-        <th>Languages:</th>
-        <th>Geoname Id:</th>
-        <th>Vehicles signs:</th>
-    </tr>
-</table>
+<div id="accordion" style="margin-top: 20px">
+</div>
 
 </body>
 <script>
@@ -35,20 +26,24 @@
                 url: url
             }).then(function (data) {
                     for (var i = 0; i < data.length; i++) {
-                        $('#accordion').append(`
 
-                  <tr>
-                  <td> ${data[i]["CLDR display name"]}</td>
-                    <td> ${data[i]["Capital"]}</td>
-                    <td> ${data[i]["FIPS"]}</td>
-                    <td> ${data[i]["FIFA"]}</td>
-                    <td> ${data[i]["Continent"]}</td>
-                    <td> ${data[i]["Languages"]}</td>
-                    <td> ${data[i]["Geoname ID"]}</td>
-                    <td> ${data[i]["DS"]}</td>
-                  </tr>
-                `);
+                        $('#accordion').append(`
+                            <h3>${data[i]["CLDR display name"]}</h3>
+                            <div>
+                                <p><b>Capital:</b> ${data[i]["Capital"]}</p>
+                                <p><b>Fips:</b> ${data[i]["FIPS"]}</p>
+                                <p><b>Code By Fifa:</b> ${data[i]["FIFA"]}</p>
+                                <p><b>Continent:</b> ${data[i]["Continent"]}</p>
+                                <p><b>Languages:</b> ${data[i]["Languages"]}</p>
+                                <p><b>Geoname ID:</b> ${data[i]["Geoname ID"]}</p>
+                                <p><b>Vehicles signs:</b> ${data[i]["DS"]}</p>
+                            </div>
+                        `)
                     }
+
+                    $('#accordion').accordion({
+                        collapsible: true,
+                    });
 
                 }
             )

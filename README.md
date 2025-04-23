@@ -1,3 +1,4 @@
+
 # Taller 3 (Laboratorio):
 ## Creación de contenido web a través del uso de etiquetas HTML y JavaScript
 
